@@ -4,8 +4,12 @@ MAINTAINER "ian <ian@jumpingrivers.com>"
 ENV PACKER_VERSION=1.3.4
 
 RUN apt update \
- && apt install -y openssl ssh unzip ansible \
+ && apt install -y openssl ssh unzip \
  && rm -rf /var/lib/apt/lists/*
+ 
+RUN add-apt-repository ppa:ansible/ansible \
+  && apt update \
+  && apt install ansible
 
 ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
 
