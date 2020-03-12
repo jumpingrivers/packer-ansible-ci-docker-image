@@ -10,7 +10,7 @@ RUN apt update \
 RUN add-apt-repository -y ppa:ansible/ansible \
   && apt update -y \
   && apt install -y ansible \
-  &&  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/*
 
 ADD https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip ./
 
